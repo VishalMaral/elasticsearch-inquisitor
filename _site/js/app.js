@@ -8,7 +8,7 @@ angular.module('inquisitor.service', [])
         currentIndex: "",
         currentType: "",
         mapping: {} ,
-        tabs:['Queries', 'Analyzers', 'Tokenizers'],
+        tabs:['Queries', 'Analyzers', 'Tokenizers', 'MyAnalyzers'],
         autodetectfield: false
     })
     .value('Analyzer', {
@@ -77,6 +77,10 @@ app.config(function ($routeProvider) {
         .when('/analyzers',
         {
             templateUrl: "views/analyzers.html"
+        })
+        .when('/myanalyzers',
+        {
+            templateUrl: "views/myanalyzers.html"
         })
         .when('/tokenizers',
         {
