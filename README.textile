@@ -7,6 +7,35 @@ To install Inquisitor onto your node, run <code>bin/plugin install VishalMaral/e
 
 Inquisitor automatically connects to <code>localhost</code>, so it must be run on a node that is web-accessible.  To access Inquisitor, open <code>http://localhost:9200/_plugin/inquisitor/</code>
 
+h3. Launching with docker container
+
+* Install docker-compose on your cloud box.
+<code>
+sudo apt-get update && \
+sudo apt-get --assume-yes install apt-transport-https ca-certificates && \
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D  && \
+echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list && \
+sudo apt-get update && \
+sudo apt-get --assume-yes install tree && \
+sudo apt-get --assume-yes install mosh && \
+sudo apt-get --assume-yes install docker-engine && \
+sudo service docker start && \
+curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
+chmod +x /usr/local/bin/docker-compose && \
+docker-compose --version
+</code>
+
+
+* Clone the repo: https://github.com/VishalMaral/docker-inquisitor
+It has the necessary scripts to install and run elasticsearch and plugin
+
+* Make sure to change the permissions to execute sh files:
+
+<code>chmod 744 *.sh</code>
+
+* Start the service: <code>docker-compose up</code>
+
+* To access Inquisitor, open <code>http://localhost:9200/_plugin/inquisitor/</code>
 
 h4. MyAnalyzer
 
